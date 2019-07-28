@@ -23,8 +23,21 @@ Output =>
 
 */
 
-function MultiByNum1OrNum2() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+var arrOfNum1 = [1,5,2];
+var arrOfNum2 = [7,2,50];
+
+function MultiByNum1OrNum2(arr,num1,num2) {
+  var result = arr.map(
+function (elemnt,index){
+  if (elemnt%num1===0)
+  return elemnt*num1;
+  else
+  return elemnt*num2;
+
+}
+  )
+  
+  return result;
 }
 
 /* Q2:
@@ -35,13 +48,7 @@ and return a new array with the object has
 a name longer than the first parameter
 and in the same time less than the second parameters 
 
-var arrOfObj1 = [
-  { name: "alex" ,age:22},
-  { name: "mercer",age:26},
-  { name: "alice" ,age:33},
-  { name: "zaheer",age:35},
-  { name: "elizabeth",age:45}
-]
+
 Example: 
 longerAndYounger(arrOfObj1,4,30)
 Output => 
@@ -58,9 +65,26 @@ Output =>
 ]
 */
 
-function longerAndYounger() {
-  // WRITE YOUR CODE UNDER THIS LINE         
-}
+
+var arrOfObj1 = [
+  { name: "alex" ,age:22},
+  { name: "mercer",age:26},
+  { name: "alice" ,age:33},
+  { name: "zaheer",age:35},
+  { name: "elizabeth",age:45}
+]
+
+function longerAndYounger(arrObj,num1,num2) {
+  
+  var result = arrObj.filter(
+    function (elemnt,index){
+      return elemnt.name.length>num1 && elemnt.age<num2;
+    }
+      )
+     return result;
+    }
+
+
 
 /* Q3:
 Using Reduce
@@ -89,10 +113,23 @@ Output =>
 "alice, fried chiken, pizaa, burger, hot dog, eggs"
   
 */
-function nameAndAllFoods() {
-  // WRITE YOUR CODE UNDER THIS LINE         
-}
 
+var arrOfObj2 = [
+  { name: "alex", food: "fried chiken" },
+  { name: "mercer", food: "pizaa" },
+  { name: "alice", food: "burger" },
+  { name: "zaheer", food: "hot dog" },
+  { name: "elizabeth", food: "eggs" }
+]
+
+function nameAndAllFoods(arrObj,num) {
+  var result= arrObj.reduce (function(acc,elemnt){
+    return acc + ", " + elemnt.food;
+
+  },arrObj[num].name)
+  
+  return result;
+}
 
 /*
 Q4
